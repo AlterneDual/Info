@@ -59,3 +59,18 @@ https://polyglot-phil.com/nosql/docstore/mongodb/kotlin/2018/09/02/using-mongodb
 
 -- Getting Started with MongoDB
 https://polyglot-phil.com/nosql/docstore/mongodb/2018/08/22/getting-started-with-mongodb.html
+
+-- Tecnicas de encriptacion
+https://codersee.com/kotlin-pbkdf2-secure-password-hashing/
+
+-- How to Insert a MongoDB Document using Kotlin
+https://kb.objectrocket.com/mongo-db/how-to-insert-a-mongodb-document-using-kotlin-1178
+
+-- Kotlin – Convert JSON to Object and vice versa using Jackson
+https://www.bezkoder.com/kotlin-convert-json-to-object-jackson/
+
+-- Kotlin – Convert object to/from JSON string using Gson
+https://www.bezkoder.com/kotlin-parse-json-gson/
+
+-- Datos y archivos de la app
+https://developer.android.com/guide/topics/data/index.
