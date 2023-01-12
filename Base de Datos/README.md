@@ -7,11 +7,10 @@ Elección de las tecnologías, lenguajes, herramientas y librerías que se van a
 ### Tecnologias
 
 - Desarrollo:
+
   - AndoridStudio
   - NetBeans
   - IntellijIDEA
-
-‌
 
 - Bases Datos:
   - XAMPP
@@ -38,13 +37,21 @@ Elección de las tecnologías, lenguajes, herramientas y librerías que se van a
 
 ---
 
--- Using Kodein-DB NoSQL database in a Kotlin Multiplatform project
-
-https://johnoreilly.dev/posts/kodein-db-multiplatform/
+## Documentation
 
 -- Ktor (multiplatform asynchronous HTTP client)
 
 https://ktor.io/docs/getting-started-ktor-client.html
+
+-- MongoDB Doc
+
+https://www.mongodb.com/
+
+https://www.mongodb.com/docs/manual/reference/default-mongodb-port/
+
+---
+
+## Theory
 
 -- Types of NoSQL Databases
 
@@ -54,9 +61,17 @@ https://www.geeksforgeeks.org/types-of-nosql-databases/
 
 https://www.educba.com/couchdb-vs-mongodb/
 
--- Writing to a File in Kotlin
+-- Blog Android Developper
 
-https://www.baeldung.com/kotlin/write-file
+https://himanshoe.com/
+
+-- MongoDB in Ktor
+
+https://himanshoe.com/mongodb-in-ktor
+
+---
+
+## Storage
 
 -- How to store data locally in an Android app
 
@@ -66,35 +81,13 @@ https://www.androidauthority.com/how-to-store-data-locally-in-android-app-717190
 
 https://stackoverflow.com/questions/2202645/how-do-i-store-json-data-on-a-disk
 
--- Reading and Writing JSON in Kotlin with Jackson
+---
 
-https://stackabuse.com/reading-and-writing-json-in-kotlin-with-jackson/
-
--- How to read and write local JSON with kotlin
-
-https://stackoverflow.com/questions/66411845/how-to-read-and-write-local-json-with-kotlin
-
--- Kotlin and MongoDB, good combo
-
-https://phauer.com/2018/kotlin-mongodb-perfect-match/
+## MongoDB + Atlas
 
 -- Connect to MongoDB from Kotlin
 
 https://www.tutorialkart.com/mongodb/connect-to-mongodb-from-kotlin/
-
--- MongoDB Doc
-
-https://www.mongodb.com/
-
-https://www.mongodb.com/docs/manual/reference/default-mongodb-port/
-
--- Blog Android Developper
-
-https://himanshoe.com/
-
--- MongoDB in Ktor
-
-https://himanshoe.com/mongodb-in-ktor
 
 -- How to Insert a MongoDB Document using Kotlin
 
@@ -116,13 +109,29 @@ https://polyglot-phil.com/nosql/docstore/mongodb/kotlin/2018/09/02/using-mongodb
 
 https://polyglot-phil.com/nosql/docstore/mongodb/2018/08/22/getting-started-with-mongodb.html
 
--- Tecnicas de encriptacion
-
-https://codersee.com/kotlin-pbkdf2-secure-password-hashing/
-
 -- How to Insert a MongoDB Document using Kotlin
 
 https://kb.objectrocket.com/mongo-db/how-to-insert-a-mongodb-document-using-kotlin-1178
+
+-- Install Realm in Project
+
+https://www.mongodb.com/docs/realm/sdk/java/install/#std-label-java-install
+
+-- Introduction to Atlas Device Sync for Android
+
+https://www.mongodb.com/developer/products/realm/introduction-realm-sync-android/
+
+-- Realm Java SDK (Local object store on a device)
+
+https://www.mongodb.com/docs/realm/sdk/java/
+
+-- Realm Query Language
+
+https://www.mongodb.com/docs/realm/realm-query-language/#std-label-realm-query-language
+
+---
+
+## Conversion
 
 -- Kotlin – Convert JSON to Object and vice versa using Jackson
 
@@ -132,17 +141,38 @@ https://www.bezkoder.com/kotlin-convert-json-to-object-jackson/
 
 https://www.bezkoder.com/kotlin-parse-json-gson/
 
--- Datos y archivos de la app
+-- Writing to a File in Kotlin
 
-https://developer.android.com/guide/topics/data/index.
+https://www.baeldung.com/kotlin/write-file
 
--- Introduction to Atlas Device Sync for Android
+-- Reading and Writing JSON in Kotlin with Jackson
 
-https://www.mongodb.com/developer/products/realm/introduction-realm-sync-android/
+https://stackabuse.com/reading-and-writing-json-in-kotlin-with-jackson/
 
--- Realm Java SDK (Local object store on a device)
-https://www.mongodb.com/docs/realm/sdk/java/
+-- How to read and write local JSON with kotlin
+
+https://stackoverflow.com/questions/66411845/how-to-read-and-write-local-json-with-kotlin
+
+-- Quick Start - Java SDK
+
+https://www.mongodb.com/docs/realm/sdk/java/quick-start-local/
 
 ---
 
-## Instalacion
+## Encriptacion
+
+-- Tecnicas de encriptacion
+
+https://codersee.com/kotlin-pbkdf2-secure-password-hashing/
+
+---
+
+## Other
+
+-- Using Kodein-DB NoSQL database in a Kotlin Multiplatform project
+
+https://johnoreilly.dev/posts/kodein-db-multiplatform/
+
+-- Datos y archivos de la app
+
+https://developer.android.com/guide/topics/data/index.
