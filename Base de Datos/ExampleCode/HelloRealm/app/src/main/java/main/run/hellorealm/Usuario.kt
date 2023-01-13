@@ -2,8 +2,10 @@ package main.run.hellorealm
 
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
+import io.realm.annotations.RealmClass
 import io.realm.annotations.Required
 
+@RealmClass
 open class Usuario() : RealmObject() {
 
 
@@ -12,6 +14,8 @@ open class Usuario() : RealmObject() {
 
     @Required
     var nombre: String? = ""
+
+    @Required
     var pss: String? = ""
 
     override fun toString(): String {
