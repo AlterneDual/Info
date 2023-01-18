@@ -1,23 +1,28 @@
 package main.run.hellorealm
 
 import io.realm.Realm
+import io.realm.RealmList
 import io.realm.kotlin.where
 
 class UsuarioController {
 
     val realm: Realm = Realm.getDefaultInstance()
+    var ec = Encrypter()
 
-
-    fun addUser(name: String, pss: String) {
+    fun addUser(name: String, pss: String, gastos: RealmList<Gasto>?):Int {
+        var pss_encrypt = ec.encrypt(pss)
+        var key=getNextKey()
 
         realm.executeTransaction { r: Realm ->
-            var user = r.createObject(Usuario::class.java, getNextKey())
-//                user.id = getNextKey()
+            var user = r.createObject(Usuario::class.java, key)
             user.nombre = name
-            user.pss = pss
+            user.pss = pss_encrypt
+            if (gastos != null) {
+                user.gastos = gastos
+            }
             realm.insertOrUpdate(user)
         }
-
+        return key
     }
 
     fun getUser(id: Int): Usuario? {
@@ -45,12 +50,20 @@ class UsuarioController {
         }
     }
 
-    open fun updateUser(id:Int,name:String,pss:String) {
+    open fun updateUser(id: Int, name: String, pss: String, gasto_stored: RealmList<Gasto>?) {
         val tgt_user = realm.where(Usuario::class.java).equalTo("id", id).findFirst()
-
+        var pss_checked: String = ""
+        if (tgt_user != null) {
+            if (tgt_user.pss?.let { ec.decrypt(it).equals(ec.decrypt(pss)) } == true) {
+                pss_checked = tgt_user.pss!!
+            } else {
+                pss_checked = ec.encrypt(pss).toString()
+            }
+        }
         realm.executeTransaction {
             tgt_user?.nombre = name
-            tgt_user?.pss = pss
+            tgt_user?.pss = pss_checked
+            tgt_user?.gastos = gasto_stored
             realm.insertOrUpdate(tgt_user)
 
         }
@@ -68,5 +81,6 @@ class UsuarioController {
             r.delete(Usuario::class.java)
         }
     }
+
 
 }

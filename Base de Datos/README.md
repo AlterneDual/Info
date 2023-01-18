@@ -169,6 +169,26 @@ https://www.mongodb.com/docs/realm/sdk/java/quick-start-local/
 
 https://codersee.com/kotlin-pbkdf2-secure-password-hashing/
 
+-- Metodo de Encriptacion - Desencriptacion con Kotlin
+
+https://stackoverflow.com/questions/49340005/encrypt-decrypt-string-kotlin
+
+-- Encriptador/Desencriptador Base64
+
+https://www.base64decode.org/
+
+-- AES
+
+https://www.base64decode.org/
+
+-- Android Kotlin: Realm many to one relation
+
+https://www.geeksforgeeks.org/advanced-encryption-standard-aes/
+
+-- What Is AES Encryption, Examples of How the Advanced Encryption Standard Works
+
+https://www.addictivetips.com/protection/aes-encryption/
+
 ---
 
 ## Other
