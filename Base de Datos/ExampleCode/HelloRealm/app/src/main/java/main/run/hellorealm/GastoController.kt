@@ -25,14 +25,7 @@ class GastoController {
         return realm.where(Gasto::class.java).equalTo("id", id).findFirst()
     }
 
-    fun getAllGasto(usuario: Usuario): RealmList<Gasto> {
 
-        val list = RealmList<Gasto>()
-        val user_list =
-            realm.where(Gasto::class.java).in("usuario_asociado", usuario).findAll()
-        user_list?.subList(0, user_list.size)?.let { list.addAll(it) }
-        return list
-    }
 
 
     fun getAllGasto(): RealmList<Gasto> {

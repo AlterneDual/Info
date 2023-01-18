@@ -1,6 +1,7 @@
 package main.run.hellorealm
 
 import io.realm.RealmObject
+import io.realm.annotations.LinkingObjects
 import io.realm.annotations.PrimaryKey
 import io.realm.annotations.RealmClass
 
@@ -12,6 +13,7 @@ open class Gasto : RealmObject() {
     var id: Int = 0
 
     var cantidad: Double = 0.0
+
 
     var usuario_asociado: Usuario? = null
 

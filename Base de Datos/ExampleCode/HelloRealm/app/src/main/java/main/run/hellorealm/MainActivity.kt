@@ -25,6 +25,7 @@ open class MainActivity : AppCompatActivity() {
 
         var uc = UsuarioController()
         var gc = GastoController()
+        var ugc = UsuarioGastoController()
 //        //Limpiar Base de Datos
 //        uc.cleanAllUser()
 //
@@ -141,7 +142,7 @@ open class MainActivity : AppCompatActivity() {
         gc.addGasto(300.0, user_stored[last_updated])
         gc.addGasto(50.5, user_stored[last_updated])
         gc.addGasto(30.0, user_stored[last_updated])
-        var gasto_stored = gc.getAllGasto(user_stored[last_updated])
+        var gasto_stored = ugc.getAllGasto(user_stored[last_updated])
 
         user_stored[last_updated].nombre?.let {
             user_stored[last_updated].pss?.let { it1 ->
@@ -152,15 +153,15 @@ open class MainActivity : AppCompatActivity() {
         }
 
 
-        last_updated=uc.addUser("Benita", "33423345",null)
+        last_updated = uc.addUser("Benita", "33423345", null)
         println("Añadido usuario con ID: $last_updated")
         println(uc.getUser(last_updated)?.info())
         user_stored = uc.getAllUser()
 
-        gc.addGasto(20.2,user_stored[last_updated])
-        gc.addGasto(10.1,user_stored[last_updated])
-        gc.addGasto(750.42,user_stored[last_updated])
-        gasto_stored = gc.getAllGasto(user_stored[last_updated])
+        gc.addGasto(20.2, user_stored[last_updated])
+        gc.addGasto(10.1, user_stored[last_updated])
+        gc.addGasto(750.42, user_stored[last_updated])
+        gasto_stored = ugc.getAllGasto(user_stored[last_updated])
 
 
         user_stored[last_updated].nombre?.let {
@@ -171,13 +172,14 @@ open class MainActivity : AppCompatActivity() {
             }
         }
 
-        user_stored=uc.getAllUser()
-        for(us in user_stored){
+        user_stored = uc.getAllUser()
+        for (us in user_stored) {
             println(us.toString())
         }
         var all_gastos = gc.getAllGasto()
-        for(gs in all_gastos){
-            println(gs)
+        for (gs in all_gastos) {
+            println(gs.toString())
+
         }
 
     }
