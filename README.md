@@ -218,3 +218,19 @@ https://www.geeksforgeeks.org/android-session-management-with-kotlin/
 -- Grafica Horizontal
 
 https://stackoverflow.com/questions/44263543/mpandroidchart-setviewportoffsets0-0-0-0-resetting-after-drag
+
+https://stackoverflow.com/questions/28850411/mpandroidchart-barchart-horizontal-vertical
+
+-- MPAndroid Pie Chart
+
+https://medium.com/@clyeung0714/using-mpandroidchart-for-android-application-piechart-123d62d4ddc0
+
+-- Android – Create a Pie Chart with Kotlin (MPAndroidChart)
+
+https://www.geeksforgeeks.org/android-create-a-pie-chart-with-kotlin/
+
+-- MPAndroidChart
+
+https://weeklycoding.com/mpandroidchart/
+
+https://medium.com/tag/mpandroidchart
