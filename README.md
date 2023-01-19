@@ -200,3 +200,15 @@ https://johnoreilly.dev/posts/kodein-db-multiplatform/
 -- Datos y archivos de la app
 
 https://developer.android.com/guide/topics/data/index.
+
+## Code
+
+-- View Binding en Kotlin
+
+https://cursokotlin.com/capitulo-29-view-binding-en-kotlin/
+
+## Session
+
+-- Session in Kotlin
+
+https://www.geeksforgeeks.org/android-session-management-with-kotlin/

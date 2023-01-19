@@ -1,7 +1,6 @@
-package main.run.hellorealm
+package main.run.hellorealm.model
 
 import io.realm.RealmObject
-import io.realm.annotations.LinkingObjects
 import io.realm.annotations.PrimaryKey
 import io.realm.annotations.RealmClass
 
@@ -14,11 +13,10 @@ open class Gasto : RealmObject() {
 
     var cantidad: Double = 0.0
 
-
-    var usuario_asociado: Usuario? = null
+    var usuarioId: Usuario? = null
 
     override fun toString(): String {
-        var user = usuario_asociado?.info()
+        var user = usuarioId?.info()
         return ("$id -> $cantidad. Con el usuario asociado $user")
     }
 

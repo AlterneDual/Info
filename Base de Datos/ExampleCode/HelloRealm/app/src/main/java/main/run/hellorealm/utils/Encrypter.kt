@@ -1,4 +1,4 @@
-package main.run.hellorealm
+package main.run.hellorealm.utils
 
 import android.util.Base64
 import javax.crypto.Cipher

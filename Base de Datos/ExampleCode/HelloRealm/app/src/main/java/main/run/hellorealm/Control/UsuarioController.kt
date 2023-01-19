@@ -1,8 +1,11 @@
-package main.run.hellorealm
+package main.run.hellorealm.Control
 
 import io.realm.Realm
 import io.realm.RealmList
 import io.realm.kotlin.where
+import main.run.hellorealm.model.Gasto
+import main.run.hellorealm.model.Usuario
+import main.run.hellorealm.utils.Encrypter
 
 class UsuarioController {
 

@@ -1,11 +1,11 @@
-package main.run.hellorealm
+package main.run.hellorealm.model
 
 import io.realm.*
-import io.realm.annotations.LinkingObjects
 
 import io.realm.annotations.PrimaryKey
 import io.realm.annotations.RealmClass
 import io.realm.annotations.Required
+import main.run.hellorealm.utils.Encrypter
 
 @RealmClass
 open class Usuario : RealmObject() {
@@ -22,7 +22,7 @@ open class Usuario : RealmObject() {
     @Required
     var pss: String? = ""
 
-    var gastos: RealmList<Gasto>? = null
+    var gastos: RealmList<Gasto>? = RealmList<Gasto>()
 
 
     fun info(): String {
@@ -39,7 +39,7 @@ open class Usuario : RealmObject() {
         }
 
         var decrypted_pass = pss?.let { ec.decrypt(it) }
-        if (gastos != null) {
+        if (gastos?.isNotEmpty() == true) {
             return ("$id -> Usuario: $nombre; Password: $decrypted_pass " +
                     "\n Con los siguientes gastos: $gastos_tense ")
         } else {

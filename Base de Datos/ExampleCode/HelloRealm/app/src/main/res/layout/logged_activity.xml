@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Logged">
+
+    <!--on below line we are creating a
+         simple text view for heading-->
+    <TextView
+        android:id="@+id/idTVHead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Session Management in Android Example"
+        android:textAlignment="center"
+        android:textColor="@color/purple_200"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!--on below line we are creating a
+        text view for displaying user name-->
+    <TextView
+        android:id="@+id/idTVUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idTVHead"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="User Name"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/purple_200"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!--on below line we are creating
+         a button for logout-->
+    <Button
+        android:id="@+id/idBtnLogOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idTVUserName"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:padding="5dp"
+        android:text="Logout"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/idBtnPieChart"
+        android:layout_width="166dp"
+        android:layout_height="107dp"
+        android:layout_below="@+id/idBtnLogOut"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="113dp"
+        android:text="PieChart" />
+
+</RelativeLayout>

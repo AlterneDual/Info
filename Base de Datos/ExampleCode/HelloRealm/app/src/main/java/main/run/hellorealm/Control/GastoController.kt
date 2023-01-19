@@ -1,10 +1,10 @@
-package main.run.hellorealm
+package main.run.hellorealm.Control
 
 import io.realm.Realm
 import io.realm.RealmList
-import io.realm.RealmObject
 import io.realm.kotlin.where
-import org.bson.types.ObjectId
+import main.run.hellorealm.model.Gasto
+import main.run.hellorealm.model.Usuario
 
 class GastoController {
 
@@ -15,7 +15,7 @@ class GastoController {
         realm.executeTransaction { r: Realm ->
             var gasto = r.createObject(Gasto::class.java, getNextKey())
             gasto.cantidad = cantidad
-            gasto.usuario_asociado = usuario
+            gasto.usuarioId = usuario
             realm.insertOrUpdate(gasto)
         }
 
@@ -52,5 +52,11 @@ class GastoController {
         realm.executeTransaction { r: Realm ->
             r.delete(Gasto::class.java)
         }
+    }
+
+    fun getAllGastoByUserId(id: Int): RealmList<Gasto>? {
+        val user_list = realm.where(Usuario::class.java).equalTo("id", id).findFirst()
+        var list = user_list?.gastos
+        return list
     }
 }

@@ -6,9 +6,13 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import io.realm.Realm
 import io.realm.RealmConfiguration
+import io.realm.RealmList
+import main.run.hellorealm.Control.GastoController
+import main.run.hellorealm.Control.UsuarioController
+import main.run.hellorealm.model.Gasto
 
 
-open class MainActivity : AppCompatActivity() {
+open class RealmUse : AppCompatActivity() {
 
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -25,7 +29,6 @@ open class MainActivity : AppCompatActivity() {
 
         var uc = UsuarioController()
         var gc = GastoController()
-        var ugc = UsuarioGastoController()
 //        //Limpiar Base de Datos
 //        uc.cleanAllUser()
 //
@@ -142,16 +145,6 @@ open class MainActivity : AppCompatActivity() {
         gc.addGasto(300.0, user_stored[last_updated])
         gc.addGasto(50.5, user_stored[last_updated])
         gc.addGasto(30.0, user_stored[last_updated])
-        var gasto_stored = ugc.getAllGasto(user_stored[last_updated])
-
-        user_stored[last_updated].nombre?.let {
-            user_stored[last_updated].pss?.let { it1 ->
-                uc.updateUser(
-                    user_stored[last_updated].id, it, it1, gasto_stored
-                )
-            }
-        }
-
 
         last_updated = uc.addUser("Benita", "33423345", null)
         println("Añadido usuario con ID: $last_updated")
@@ -161,26 +154,38 @@ open class MainActivity : AppCompatActivity() {
         gc.addGasto(20.2, user_stored[last_updated])
         gc.addGasto(10.1, user_stored[last_updated])
         gc.addGasto(750.42, user_stored[last_updated])
-        gasto_stored = ugc.getAllGasto(user_stored[last_updated])
 
-
-        user_stored[last_updated].nombre?.let {
-            user_stored[last_updated].pss?.let { it1 ->
-                uc.updateUser(
-                    user_stored[last_updated].id, it, it1, gasto_stored
-                )
+        var gastos = gc.getAllGasto()
+        for (us in user_stored) {
+            var r_list = RealmList<Gasto>()
+            for (gas in gastos) {
+                if (gas.usuarioId?.id == us.id) {
+                    r_list.add(gas)
+                }
             }
+            us.nombre?.let { us.pss?.let { it1 -> uc.updateUser(us.id, it, it1, r_list) } }
         }
+
+
 
         user_stored = uc.getAllUser()
         for (us in user_stored) {
-            println(us.toString())
+            println(us.info())
+            var gastos_usuario = us.gastos
+            if (gastos_usuario != null) {
+                for (gas in gastos_usuario) {
+                    println(gas.info())
+                }
+            }
         }
+
+        println("------------------------------------------")
         var all_gastos = gc.getAllGasto()
         for (gs in all_gastos) {
             println(gs.toString())
 
         }
+
 
     }
 }
