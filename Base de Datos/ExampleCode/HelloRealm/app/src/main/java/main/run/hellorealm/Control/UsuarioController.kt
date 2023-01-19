@@ -83,6 +83,11 @@ class UsuarioController: Encrypter() {
             r.delete(Usuario::class.java)
         }
     }
+    fun getAllGastoByUserId(id: Int): RealmList<Gasto>? {
+        val user_list = realm.where(Usuario::class.java).equalTo("id", id).findFirst()
+        var list = user_list?.gastos
+        return list
+    }
 
 
 

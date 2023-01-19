@@ -98,7 +98,7 @@ class PieChart : AppCompatActivity() {
         var mapped:RealmList<Gasto>?
         var labels: ArrayList<Gasto> = ArrayList<Gasto>()
         if(id>=0){
-            mapped=gc.getAllGastoByUserId(id)
+            mapped=uc.getAllGastoByUserId(id)
 
             if (mapped != null) {
                 for(map in mapped){
