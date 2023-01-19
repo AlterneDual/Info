@@ -11,13 +11,13 @@ import javax.crypto.spec.SecretKeySpec
 // https://stackoverflow.com/questions/49340005/encrypt-decrypt-string-kotlin
 // https://www.base64decode.org/
 
-class Encrypter {
+open class Encrypter {
 
-    val secretKey = "tK5UTui+DPh8lIlBxya5XVsmeDCoUl6vHhdIESMB6sQ="
-    val salt = "QWlGNHNhMTJTQWZ2bGhpV3U=" // base64 decode of -> AiF4sa12SAfvlhiWu
-    val iv = "bVQzNFNhRkQ1Njc4UUFaWA==" // base64 decode of -> mT34SaFD5678QAZX
+    private val secretKey = "tK5UTui+DPh8lIlBxya5XVsmeDCoUl6vHhdIESMB6sQ="
+    private val salt = "QWlGNHNhMTJTQWZ2bGhpV3U=" // base64 decode of -> AiF4sa12SAfvlhiWu
+    private val iv = "bVQzNFNhRkQ1Njc4UUFaWA==" // base64 decode of -> mT34SaFD5678QAZX
 
-    fun encrypt(strToEncrypt: String): String? {
+    open fun encrypt(strToEncrypt: String): String? {
         try {
             val ivParameterSpec = IvParameterSpec(Base64.decode(iv, Base64.DEFAULT))
 

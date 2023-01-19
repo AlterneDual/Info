@@ -59,4 +59,5 @@ class GastoController {
         var list = user_list?.gastos
         return list
     }
+
 }

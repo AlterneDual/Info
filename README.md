@@ -212,3 +212,9 @@ https://cursokotlin.com/capitulo-29-view-binding-en-kotlin/
 -- Session in Kotlin
 
 https://www.geeksforgeeks.org/android-session-management-with-kotlin/
+
+## Graficas
+
+-- Grafica Horizontal
+
+https://stackoverflow.com/questions/44263543/mpandroidchart-setviewportoffsets0-0-0-0-resetting-after-drag

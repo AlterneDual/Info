@@ -1,6 +1,8 @@
 package main.run.hellorealm
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Build
@@ -13,24 +15,52 @@ import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
-import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.MPPointF
+import io.realm.Realm
+import io.realm.RealmConfiguration
+import io.realm.RealmList
+import main.run.hellorealm.Control.GastoController
+import main.run.hellorealm.Control.UsuarioController
 import main.run.hellorealm.databinding.PieChartBinding
+import main.run.hellorealm.model.Gasto
 
 class PieChart : AppCompatActivity() {
     lateinit var pieChart: PieChart
     lateinit var binding: PieChartBinding
+    lateinit var uc:UsuarioController
+    lateinit var gc:GastoController
+    private lateinit var sharedPreferences: SharedPreferences
+
+    private val PREFS_KEY = "prefs"
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Para acceder a las ids de manera mas efectiva
         binding = PieChartBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Realm.init(this)
+        val realmName = "ProyectoPrueba"
+        val config =
+            RealmConfiguration.Builder().name(realmName).deleteRealmIfMigrationNeeded()
+                .schemaVersion(0).allowWritesOnUiThread(true).allowQueriesOnUiThread(true).build()
+        Realm.setDefaultConfiguration(config)
 
+        gc=GastoController()
+        uc= UsuarioController()
+
+        sharedPreferences = getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE)
+        var id=sharedPreferences.getInt("id",-1)
+
+
+        // Asociar la Grafica
         pieChart = binding.pieChart
 
+        // Valores porcentuales (Tambien pueden establecerse en bruto
         pieChart.setUsePercentValues(false)
         pieChart.description.isEnabled = false
+
         pieChart.setExtraOffsets(0f, 0f, 0f, 0f)
 
         pieChart.dragDecelerationFrictionCoef = 10f
@@ -52,26 +82,38 @@ class PieChart : AppCompatActivity() {
         pieChart.setEntryLabelTextSize(12f)
 
 
-        val entries: ArrayList<PieEntry> = ArrayList()
-        entries.add(PieEntry(60f, "Casa"))
-        entries.add(PieEntry(20f, "Dia"))
-        entries.add(PieEntry(10f, "Noche"))
+//        val entries: ArrayList<PieEntry> = ArrayList()
+//        entries.add(PieEntry(60f, "Casa"))
+//        entries.add(PieEntry(20f, "Dia"))
+//        entries.add(PieEntry(10f, "Noche"))
 
 
-        val mapped = HashMap<String, Int>()
-        mapped["Vacaciones"] = 200
-        mapped["Alojamiento"] = 400
-        mapped["Comida"] = 100
-        mapped["Otros"] = 50
-        mapped["Ocio"] = 400
-        var labels: ArrayList<String> = ArrayList<String>()
-        for (k in mapped.keys) {
-            labels.add(k)
+//        val mapped = HashMap<String, Int>()
+//        mapped["Vacaciones"] = 200
+//        mapped["Alojamiento"] = 400
+//        mapped["Comida"] = 100
+//        mapped["Otros"] = 50
+//        mapped["Ocio"] = 400
+
+        var mapped:RealmList<Gasto>?
+        var labels: ArrayList<Gasto> = ArrayList<Gasto>()
+        if(id>=0){
+            mapped=gc.getAllGastoByUserId(id)
+
+            if (mapped != null) {
+                for(map in mapped){
+                    labels.add(map)
+                }
+            }
         }
+//
+//        for (k in mapped.keys) {
+//            labels.add(k)
+//        }
 
         var entries_map: ArrayList<PieEntry> = ArrayList()
-        for (ob in mapped) {
-            entries_map.add(PieEntry(ob.value.toFloat(), ob.key))
+        for (ob in labels) {
+            entries_map.add(PieEntry(ob.cantidad.toFloat(), ob.id.toString()))
         }
 
 

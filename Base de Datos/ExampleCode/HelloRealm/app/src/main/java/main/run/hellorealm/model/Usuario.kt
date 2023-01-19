@@ -49,4 +49,6 @@ open class Usuario : RealmObject() {
     }
 
 
+
+
 }

@@ -7,14 +7,13 @@ import main.run.hellorealm.model.Gasto
 import main.run.hellorealm.model.Usuario
 import main.run.hellorealm.utils.Encrypter
 
-class UsuarioController {
+class UsuarioController: Encrypter() {
 
     val realm: Realm = Realm.getDefaultInstance()
-    var ec = Encrypter()
 
-    fun addUser(name: String, pss: String, gastos: RealmList<Gasto>?):Int {
-        var pss_encrypt = ec.encrypt(pss)
-        var key=getNextKey()
+    fun addUser(name: String, pss: String, gastos: RealmList<Gasto>?): Int {
+        var pss_encrypt = encrypt(pss)
+        var key = getNextKey()
 
         realm.executeTransaction { r: Realm ->
             var user = r.createObject(Usuario::class.java, key)
@@ -40,7 +39,7 @@ class UsuarioController {
         return list
     }
 
-    open fun getNextKey(): Int {
+    fun getNextKey(): Int {
         return try {
             val number: Number? = realm.where<Usuario>().max("id")
             if (number != null) {
@@ -53,14 +52,14 @@ class UsuarioController {
         }
     }
 
-    open fun updateUser(id: Int, name: String, pss: String, gasto_stored: RealmList<Gasto>?) {
+    fun updateUser(id: Int, name: String, pss: String, gasto_stored: RealmList<Gasto>?) {
         val tgt_user = realm.where(Usuario::class.java).equalTo("id", id).findFirst()
         var pss_checked: String = ""
         if (tgt_user != null) {
-            if (tgt_user.pss?.let { ec.decrypt(it).equals(ec.decrypt(pss)) } == true) {
+            if (tgt_user.pss?.let { decrypt(it).equals(decrypt(pss)) } == true) {
                 pss_checked = tgt_user.pss!!
             } else {
-                pss_checked = ec.encrypt(pss).toString()
+                pss_checked = encrypt(pss).toString()
             }
         }
         realm.executeTransaction {
@@ -72,18 +71,19 @@ class UsuarioController {
         }
     }
 
-    open fun deleteUser(id: Int) {
+    fun deleteUser(id: Int) {
         val user = realm.where(Usuario::class.java).equalTo("id", id).findFirst()
         realm.executeTransaction {
             user!!.deleteFromRealm()
         }
     }
 
-    open fun cleanAllUser() {
+    fun cleanAllUser() {
         realm.executeTransaction { r: Realm ->
             r.delete(Usuario::class.java)
         }
     }
+
 
 
 }
