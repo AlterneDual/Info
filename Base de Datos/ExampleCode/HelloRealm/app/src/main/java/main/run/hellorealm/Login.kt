@@ -32,7 +32,6 @@ class Login : AppCompatActivity() {
     var PWD_KEY = "pwd"
     var ID_KEY="id"
 
-
     var email: String = ""
     var pwd: String = ""
 
