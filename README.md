@@ -201,6 +201,10 @@ https://johnoreilly.dev/posts/kodein-db-multiplatform/
 
 https://developer.android.com/guide/topics/data/index.
 
+-- How to get data from **Realm database** using **date object**?
+
+https://stackoverflow.com/questions/48205164/how-to-get-data-from-realm-database-using-date-object
+
 ## Code
 
 -- View Binding en Kotlin
