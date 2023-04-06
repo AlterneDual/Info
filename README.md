@@ -8,7 +8,7 @@ Elección de las tecnologías, lenguajes, herramientas y librerías que se van a
 
 - Desarrollo:
 
-  - AndoridStudio
+  - AndoroidStudio
   - NetBeans
   - IntellijIDEA
 
